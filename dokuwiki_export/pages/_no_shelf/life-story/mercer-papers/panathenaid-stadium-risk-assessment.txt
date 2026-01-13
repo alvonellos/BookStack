@@ -1,0 +1,91 @@
+====== Panathenaid Stadium Risk Assessment ======
+
+Panathenaic Stadium Risk Assessment
+ 
+ 
+Alexander Alvonellos
+Mercer University
+MKT 477
+Professor DeMeo
+April 19, 2022
+ 
+The purpose of this document is to conduct a thorough and rigorous risk assessment of the Panathenaic stadium. To understand the challenges a venue manager may face for this location, and it will also dive deep into the history of the venue, as well as its historical uses and place in Greek culture. Additionally, we will analyze the location within the city and surrounding geography and demonstrate a keen physical interest in the security of the location. The Panathenaic Stadium, the site of which was first used as a sporting venue centuries before Christ walked the earth, and has a rich, complex, and diverse history. It has survived more than two millennia, countless wars, yet remains standing with only minor refurbishments for the Olympic Games – once in 1896 and another in 2004 -- and is still used today. The location has a strong historical and sentimental value to Grecian people all around the world – as it is a symbol of Grecian excellence and ingenuity. (Jennings, 2012) 
+The site the stadium was built upon was a simple racecourse for horses in the 6th century before Christ, but by the 3rd Century BC, an Athenian statesman named Lykourgos came along and decided to build a stadium. In 144 AD, Atticus came along and rebuilt the stadium completely out of marble, which stood in its current form until it was abandoned until the 400 AD. Millenia later, it was excavated, cleaned up a bit, and hosted not one but two Olympic events shortly after with only minor refurbishments, one in 1896 and another in 2004. It stands today as the pride and joy of the people of Greece and of Grecian descent.  (Zanakis, S. H., Theofanides, S., Kontaratos, A. N., & Tassios, T. P., 2003)
+The venue originally hosted between 40,000 and 80,000 people during its history, but as of recently that capacity is reduced to 45,000 people. In ancient times, this was an unthinkable number of people to be hosting. 
+We can't go back in time and see footage from these events, but as history clearly documents, many events were hosted there and there was no sports venue management at the time this place was constructed; however, we can assume some form of event management was taking place to deal with those size crowds. (Jennings 2012)
+Given the historical and cultural significance of this location, the starting point is the risk assessment for this paper is to look at the possible motivations and likely targets for a terrorist attack. If anyone were to take an adverse action against the Panathenaic stadium, it would be most likely to come in the form of a terrorist attack. Analyzing the threat objectives, we get the following: 
+ 
+And more specifically in the threat motivation table
+
+
+
+
+Threat Motivation
+
+
+Likely Targets
+
+
+
+
+Political
+
+
+Government Institutions, Icons and Symbols of government (historical facilities)
+
+
+
+
+Religious
+
+
+-        Does not apply
+
+
+
+
+Racial
+
+
+Likely target for people of Turkish and Islamic decent given the history between Greece and Turkey during Ottoman rule. 
+
+
+
+
+Environmental
+
+
+-        Does not apply
+
+
+
+
+Special Interest
+
+
+Historical site of the Olympic games, special cultural and historical significance to Greek people.
+
+
+
+
+ 
+With additional aspects given from the threat motivation table, we can analyze and see that a likely attack will be from an Islamic terrorist group or an embittered Turkish national with intent to harm the culture and history of the Greek people. This means special measures must be taken in defense against organized attack as well as lone wolf offenders. (Zanakis, S. H., Theofanides, S., Kontaratos, A. N., & Tassios, T. P. 2003).
+Defense against lone wolf offenders primarily comes in the form of behavior analysis. To accommodate, staff must be trained to recognize threat vectors and possible threat agents that can indicate an attack by recognizing outward nervousness, erratic behavior, unusual inquires. Anything that could possibly arouse suspicion from security should be pursued and addressed, especially during a major Olympic event. 
+Defense against organized attackers also expands the measures for those of lone wolf offenders, but in addition has requirements against the forms of nefarious chicanery that can be planned well in advance using high level contacts. Remediation of these threats takes form in a multi-layer approach to security. 
+Security guards should be armed, and there should be metal detectors and bomb dogs present at the perimeter of the site as well as at the entrance. We should have mobile command centers as well as municipal police, fire departments, contacts with local hospitals and utilities, an emergency medical response team, as well as ambulances. The border of the venue must be secured adequately. A surveillance command center must be setup to ensure the health and safety not only of the venue, but also of the people contained therein. (Hall, Cooper, Marciani, & McGee. 2011).
+The trouble in accomplishing both accessibility and SEPTED measures in this venue, as well as all the equipment needed to utilize modern technology cannot alter the structure of the venue in any form whatsoever since it is a historical site, built solidly of marble; therefore, special measures must be implemented.
+Accessibility ramps and special seating must be installed in a temporary, non-affixed fashion, and a limited number of wheelchair accessible spots must be installed on the main level providing the best view of the event. Accessible locations must be separate from the other levels; doing so, however, provides special opportunity for additional risk as those with an accessibility pass gain special access to the venue and have the possibility of carrying more equipment to enact terrorism. Therefore, we must perform full background checks on these individuals and the seats must be booked well in advance. The accessible entrance will be guarded by security and a series of security guards will accompany any accessible individual on the main level. They will not be allowed to leave the site of the event and re-enter. Those who require accessibility must also be fully searched and scanned for weapons, and their equipment must be checked by bomb dogs. 
+Since ad-hoc surveillance is hard to setup and opens the floor for cybersecurity attacks, we can substitute technology for people. A higher amount of personnel will be required in lieu of cameras and a centralized surveillance center. All security personnel will carry trunking radios using encrypted channels, and the technology will be kept to a bare minimum as not to alter the structure of the venue in any fashion. Surveillance will be enacted using a combination of cameras powered by ad-hoc mesh networks affixed at key points of the venue after a full wireless site survey has been performed by a third party. 
+After performing the risk assessment process, we have identified a security command group, performed a facility characterization, a threat assessment and vulnerability analysis, and fully understand the consequences against a terrorist attack against the venue. In this risk analysis we have covered the measures required by security and identified both a need for both multiagency cooperation and the need for private security. 
+Since we have covered the threats against the venue by terrorist attacks, we also have to account for inclement weather. We plan the event well in advance to be affected by inclement weather since the venue is not covered and the marble is slick when wet; therefore, we perform a risk-transference in the form of a liability waiver against slips and falls, and insurance to cover damages. 
+            In conclusion, we have determined and performed the risk assessment process for the venue, and have identified key performance indicators of a venue risk management strategy. For additional information, a physical walk of the location is required to determine further actions. 
+ 
+ 
+
+ 
+Assignment: Annotated Bibliography
+American Psychological Association. (2020). Publication manual of the American Psychological Association (7th ed.). https://doi.org/10.1037/0000165-000
+Zanakis, S. H., Theofanides, S., Kontaratos, A. N., & Tassios, T. P. (2003). Ancient Greeks’
+Practices and Contributions in Public and Entrepreneurship Decision Making. Interfaces, 33(6), 72–88. http://www.jstor.org/stable/20141304
+Hall, Cooper, Marciani, & McGee. (2011). Security Management for Sports and Special Events. Human Kinetics. ISBN 978-0-7360-7131-1
+Jennings, W. (2012). Olympic Risks. Palgrave MacMillan. ISBN 978-0-230-30006-4

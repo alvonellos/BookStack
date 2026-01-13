@@ -1,0 +1,48 @@
+2026-01-06 21:53:54,202 [INFO] Command: detect
+2026-01-06 21:53:54,202 [INFO] Running detect command
+2026-01-06 21:53:54,202 [ERROR] No DokuWiki installations found
+2026-01-06 21:53:54,656 [INFO] Command: help
+2026-01-06 21:53:54,859 [INFO] Command: version
+2026-01-06 21:53:54,860 [INFO] Version: 1.0.0
+2026-01-06 21:56:51,366 [INFO] Checkpoint saved: C:\Users\alexa\AppData\Local\Temp\tmprabg7mgk\export\.migration_checkpoint.json
+2026-01-06 21:56:51,424 [INFO] Incomplete migration archived: C:\Users\alexa\AppData\Local\Temp\tmprabg7mgk\home\Downloads\20260106_bookstack_migrate_incomplete.tar.gz
+2026-01-06 21:56:51,430 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=False, large=False
+2026-01-06 21:56:51,430 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=True, large=False
+2026-01-06 21:56:51,430 [INFO] DataSourceSelector: DB=False, API=True, prefer_api=False, large=False
+2026-01-06 21:56:51,430 [INFO] DataSourceSelector: DB=True, API=False, prefer_api=False, large=False
+2026-01-06 21:56:51,431 [INFO] DataSourceSelector: DB=False, API=False, prefer_api=False, large=False
+2026-01-06 21:56:51,441 [INFO] Command: export
+2026-01-06 21:56:51,441 [INFO] Running export command: db=None, driver=None
+2026-01-06 21:56:51,442 [WARNING] API not available: BOOKSTACK_TOKEN_ID/BOOKSTACK_TOKEN_SECRET are required for API access
+2026-01-06 21:56:51,442 [INFO] DataSourceSelector: DB=False, API=False, prefer_api=False, large=False
+2026-01-06 21:56:51,443 [ERROR] No data source available (no DB driver and no API)
+2026-01-06 21:56:51,446 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=True, large=True
+2026-01-06 21:56:51,450 [INFO] Checkpoint saved: C:\Users\alexa\AppData\Local\Temp\tmp5x5uq3zq\.migration_checkpoint.json
+2026-01-06 21:56:51,796 [INFO] Command: detect
+2026-01-06 21:56:51,797 [INFO] Running detect command
+2026-01-06 21:56:51,797 [ERROR] No DokuWiki installations found
+2026-01-06 21:56:52,566 [INFO] Command: help
+2026-01-06 21:56:52,958 [INFO] Command: version
+2026-01-06 21:56:52,958 [INFO] Version: 1.0.0
+2026-01-06 21:57:14,896 [INFO] Command: help
+2026-01-06 21:57:44,927 [INFO] Checkpoint saved: C:\Users\alexa\AppData\Local\Temp\tmptvcpkwvh\export\.migration_checkpoint.json
+2026-01-06 21:57:44,948 [INFO] Incomplete migration archived: C:\Users\alexa\AppData\Local\Temp\tmptvcpkwvh\home\Downloads\20260106_bookstack_migrate_incomplete.tar.gz
+2026-01-06 21:57:44,950 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=False, large=False
+2026-01-06 21:57:44,950 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=True, large=False
+2026-01-06 21:57:44,951 [INFO] DataSourceSelector: DB=False, API=True, prefer_api=False, large=False
+2026-01-06 21:57:44,951 [INFO] DataSourceSelector: DB=True, API=False, prefer_api=False, large=False
+2026-01-06 21:57:44,951 [INFO] DataSourceSelector: DB=False, API=False, prefer_api=False, large=False
+2026-01-06 21:57:44,957 [INFO] Command: export
+2026-01-06 21:57:44,957 [INFO] Running export command: db=None, driver=None
+2026-01-06 21:57:44,957 [WARNING] API not available: BOOKSTACK_TOKEN_ID/BOOKSTACK_TOKEN_SECRET are required for API access
+2026-01-06 21:57:44,958 [INFO] DataSourceSelector: DB=False, API=False, prefer_api=False, large=False
+2026-01-06 21:57:44,958 [ERROR] No data source available (no DB driver and no API)
+2026-01-06 21:57:44,959 [INFO] DataSourceSelector: DB=True, API=True, prefer_api=True, large=True
+2026-01-06 21:57:44,961 [INFO] Checkpoint saved: C:\Users\alexa\AppData\Local\Temp\tmpsqingq1q\.migration_checkpoint.json
+2026-01-06 21:57:45,152 [INFO] Command: detect
+2026-01-06 21:57:45,153 [INFO] Running detect command
+2026-01-06 21:57:45,153 [ERROR] No DokuWiki installations found
+2026-01-06 21:57:45,554 [INFO] Command: help
+2026-01-06 21:57:45,774 [INFO] Command: version
+2026-01-06 21:57:45,775 [INFO] Version: 1.0.0
+2026-01-06 21:58:22,267 [INFO] Command: help
