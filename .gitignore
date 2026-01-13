@@ -38,3 +38,8 @@ esbuild-meta.json
 /.pytest_cache/
 /venv/
 bookstack_migrate.log
+*.sql
+*.log
+*.json
+*.gz
+/dokuwiki_export

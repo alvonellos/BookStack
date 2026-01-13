@@ -1,6 +1,0 @@
-====== ChatGPT Prompts / Bits ======
-
-===== Pages =====
-
-  * [[_no_shelf:life-story:chatgpt-prompts-bits:about-me|About ME]]
-  * [[_no_shelf:life-story:chatgpt-prompts-bits:dr-whitaker|Dr. Whitaker]]

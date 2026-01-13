@@ -1,7 +1,0 @@
-====== OSINT ======
-
-===== Pages =====
-
-  * [[_no_shelf:haxx:osint:dehashed-hemanth-choppala|Dehashed - Hemanth Choppala]]
-  * [[_no_shelf:haxx:osint:dehashed-kristyne-seidenberg|DeHashed - Kristyne Seidenberg]]
-  * [[_no_shelf:haxx:osint:documentcloud-kristyne-l-theisen|DocumentCloud - Kristyne L Theisen]]

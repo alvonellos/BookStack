@@ -802,6 +802,47 @@ def _sanitize_namespace_part(value: str, fallback: str) -> str:
     return out or fallback
 
 
+def _html_to_markdownish(html: str) -> str:
+    """Lightweight HTML-to-markdown-ish conversion for DokuWiki export.
+
+    This avoids pulling in external dependencies while still preserving basic
+    structure so downstream Markdown->DokuWiki conversion keeps paragraphs,
+    headings, and lists intact.
+    """
+    import re
+    from html import unescape
+
+    text = unescape(html or "")
+
+    # Headings -> markdown-style headers so existing logic can convert them.
+    for level in range(6, 0, -1):
+        text = re.sub(
+            rf"<h{level}[^>]*>(.*?)</h{level}\s*>",
+            lambda m: f"{'#' * level} {m.group(1).strip()}\n\n",
+            text,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+
+    # Lists & common block separators.
+    text = re.sub(r"<\s*br\s*/?>", "\n", text, flags=re.IGNORECASE)
+    text = re.sub(r"<\s*/\s*(p|div|section|article|header|footer|blockquote)\s*>", "\n\n", text, flags=re.IGNORECASE)
+    text = re.sub(r"<\s*/\s*(ul|ol)\s*>", "\n", text, flags=re.IGNORECASE)
+    text = re.sub(r"<\s*li[^>]*>", "* ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<\s*/\s*li\s*>", "\n", text, flags=re.IGNORECASE)
+
+    # Simple inline formatting.
+    text = re.sub(r"<\s*/?\s*(strong|b)\s*>", "**", text, flags=re.IGNORECASE)
+    text = re.sub(r"<\s*/?\s*(em|i)\s*>", "//", text, flags=re.IGNORECASE)
+
+    # Strip remaining tags & tidy whitespace.
+    text = re.sub(r"<[^>]+>", "", text)
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = text.replace("\u00a0", " ")
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
 def _convert_markdown_to_dokuwiki(markdown: str, title: str) -> str:
     """Best-effort conversion from BookStack markdown/html-ish content to DokuWiki syntax."""
     content = markdown or ""
@@ -809,9 +850,17 @@ def _convert_markdown_to_dokuwiki(markdown: str, title: str) -> str:
     # Normalize line endings
     content = content.replace("\r\n", "\n")
 
-    # Headings: # -> ======
     import re
 
+    # Basic HTML handling (for DB exports where html is stored).
+    if re.search(
+        r"<\s*(p|div|br|ul|ol|li|h[1-6]|em|strong|section|article|header|footer|blockquote)[^>]*>",
+        content,
+        flags=re.IGNORECASE,
+    ):
+        content = _html_to_markdownish(content)
+
+    # Headings: # -> ======
     content = re.sub(r"^######\s+(.+)$", r"= \1 =", content, flags=re.MULTILINE)
     content = re.sub(r"^#####\s+(.+)$", r"== \1 ==", content, flags=re.MULTILINE)
     content = re.sub(r"^####\s+(.+)$", r"=== \1 ===", content, flags=re.MULTILINE)
@@ -914,6 +963,54 @@ def _write_namespace_index(
     _write_text_file(file_path, "\n".join(lines).rstrip() + "\n")
 
 
+def _write_root_index(pages_root: Path, shelf_nodes: Dict[str, Dict[str, Any]]) -> None:
+    """Create a root start.txt so DokuWiki has a home page listing shelves."""
+    child_namespaces: List[Tuple[str, str]] = []
+    for slug, info in shelf_nodes.items():
+        child_namespaces.append(
+            (_namespace_id_from_parts([slug]), str(info.get("name") or slug))
+        )
+
+    orphan_dir = pages_root / "_orphaned"
+    if orphan_dir.exists():
+        child_namespaces.append((_namespace_id_from_parts(["_orphaned"]), "Orphaned"))
+
+    _write_namespace_index(
+        file_path=pages_root / "start.txt",
+        title="BookStack Export",
+        child_namespaces=sorted(child_namespaces, key=lambda x: x[1].lower()),
+        child_pages=[],
+    )
+
+
+def _prompt_scp_destination(output: Path, enable_prompt: bool = True) -> None:
+    """Offer a quick scp hint (or optional run) to copy the export elsewhere."""
+    dest_hint = f"scp -r \"{output}\" <user>@<host>:/var/www/dokuwiki/data/pages"
+    if not enable_prompt or not sys.stdin.isatty():
+        print(f"ℹ️  To copy the export to another host: {dest_hint}")
+        return
+
+    print("\n📦 Copy export to remote DokuWiki?")
+    dest = input("Enter scp destination (user@host:/path) or leave blank to skip: ").strip()
+    if not dest:
+        print(f"ℹ️  To copy later: {dest_hint}")
+        return
+
+    cmd = f"scp -r \"{output}\" \"{dest.rstrip('/')}\""
+    run_now = input(f"Run now? [y/N]\n  {cmd}\n> ").strip().lower()
+    if run_now != "y":
+        print(f"ℹ️  Skipped. Run manually if needed:\n  {cmd}")
+        return
+
+    try:
+        res = subprocess.run(cmd, shell=True)
+        if res.returncode != 0:
+            print(f"⚠️  scp exited with {res.returncode}. You can run manually:\n  {cmd}")
+    except FileNotFoundError:
+        print("⚠️  scp not found. Install OpenSSH client or copy manually:")
+        print(f"  {cmd}")
+
+
 def _export_from_api(client: BookStackClient, options: ExportOptions, checkpoint: MigrationCheckpoint) -> None:
     pages_root = options.output / "pages"
     media_root = options.output / "media"
@@ -967,6 +1064,7 @@ def _export_from_api(client: BookStackClient, options: ExportOptions, checkpoint
 
     exported_count = 0
     skipped_count = 0
+    orphaned_seen = False
     for page_ref in client.iter_pages(count=50):
         if not page_ref.id:
             continue
@@ -1016,6 +1114,7 @@ def _export_from_api(client: BookStackClient, options: ExportOptions, checkpoint
         if not page_ref.book_id:
             # Truly orphaned
             parts = ["_orphaned"]
+            orphaned_seen = True
 
         page_slug = _sanitize_namespace_part(str(page_ref.slug or page_ref.name or ""), f"page_{page_ref.id}")
         page_dir = pages_root.joinpath(*parts)
@@ -1112,6 +1211,10 @@ def _export_from_api(client: BookStackClient, options: ExportOptions, checkpoint
             child_pages=page_children,
         )
 
+    if orphaned_seen:
+        _ensure_start_page(pages_root / "_orphaned", "Orphaned")
+    _write_root_index(pages_root, shelf_nodes)
+
 
 def _db_cursor_dict(driver_module: object, conn: object):
     # mysql.connector supports dictionary=True, mariadb supports dictionary=True as well.
@@ -1193,6 +1296,7 @@ def _export_from_database(driver_module: object, options: ExportOptions, checkpo
     shelf_nodes: Dict[str, Dict[str, Any]] = {}
     book_nodes: Dict[Tuple[str, str], Dict[str, Any]] = {}
     chapter_nodes: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
+    orphaned_seen = False
 
     if use_entities:
         entities = fetchall(
@@ -1266,9 +1370,10 @@ def _export_from_database(driver_module: object, options: ExportOptions, checkpo
             else:
                 target_dir = pages_root / "_orphaned"
                 target_dir.mkdir(parents=True, exist_ok=True)
+                orphaned_seen = True
 
             pdata = page_data.get(page_id, {})
-            content = pdata.get("markdown") or pdata.get("text") or pdata.get("html") or ""
+            content = pdata.get("markdown") or pdata.get("html") or pdata.get("text") or ""
             doc = _convert_markdown_to_dokuwiki(str(content), name)
             _write_text_file(target_dir / f"{slug}.txt", doc)
             checkpoint.add_page(page_id, name)
@@ -1384,7 +1489,8 @@ def _export_from_database(driver_module: object, options: ExportOptions, checkpo
                 else:
                     target_dir = pages_root / "_orphaned"
                     target_dir.mkdir(parents=True, exist_ok=True)
-                content = r.get("markdown") or r.get("text") or r.get("html") or ""
+                    orphaned_seen = True
+                content = r.get("markdown") or r.get("html") or r.get("text") or ""
                 doc = _convert_markdown_to_dokuwiki(str(content), name)
                 _write_text_file(target_dir / f"{slug}.txt", doc)
                 checkpoint.add_page(page_id, name)
@@ -1430,6 +1536,10 @@ def _export_from_database(driver_module: object, options: ExportOptions, checkpo
                 child_namespaces=[],
                 child_pages=page_children,
             )
+
+    if orphaned_seen:
+        _ensure_start_page(pages_root / "_orphaned", "Orphaned")
+    _write_root_index(pages_root, shelf_nodes)
 
     try:
         conn.close()
@@ -1616,8 +1726,9 @@ def cmd_export(options: ExportOptions) -> int:
             raise last_error
 
         checkpoint.save()
+        _prompt_scp_destination(options.output, enable_prompt=not options.justdoit)
         return 0
-        
+
     except KeyboardInterrupt:
         print("\n⚠️  Migration interrupted by user")
         checkpoint.mark_incomplete()

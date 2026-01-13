@@ -1,8 +1,0 @@
-====== Life Story ======
-
-===== Contents =====
-
-  * [[_no_shelf:life-story:chatgpt-prompts-bits:start|ChatGPT Prompts / Bits]]
-  * [[_no_shelf:life-story:mercer:start|Mercer]]
-  * [[_no_shelf:life-story:mercer-papers:start|Mercer Papers]]
-  * [[_no_shelf:life-story:tidbits:start|Tidbits]]

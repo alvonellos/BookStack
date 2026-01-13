@@ -1,3 +1,0 @@
-====== 01/19/2025 ======
-
-Worked on a lot of things today. Didn't get much done all at the same time. Playing around with this to see if this is a viable solution to some of my problems. But I'm concerned with the scalability of this solution as well as how easy it is to maintain and keep over long periods of time. I will eventually have to port this to something else if I decide to commit to it, so there's that.

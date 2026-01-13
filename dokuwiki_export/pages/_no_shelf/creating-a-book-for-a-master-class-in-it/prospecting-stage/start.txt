@@ -1,9 +1,0 @@
-====== Prospecting Stage ======
-
-===== Pages =====
-
-  * [[_no_shelf:creating-a-book-for-a-master-class-in-it:prospecting-stage:deeper-dive-into-requirements|Deeper Dive Into Requirements]]
-  * [[_no_shelf:creating-a-book-for-a-master-class-in-it:prospecting-stage:frameworks-reflecting-my-bohemian-personality|Frameworks Reflecting My Bohemian Personality]]
-  * [[_no_shelf:creating-a-book-for-a-master-class-in-it:prospecting-stage:getting-started-writing-book|Getting Started Writing Book]]
-  * [[_no_shelf:creating-a-book-for-a-master-class-in-it:prospecting-stage:the-day-it-all-changed-jerry-died|The Day It All Changed - Jerry Died]]
-  * [[_no_shelf:creating-a-book-for-a-master-class-in-it:prospecting-stage:topics-list|Topics List]]
