@@ -1,0 +1,9 @@
+*.log
+*.pyc
+__pycache__/
+venv/
+.venv/
+dokuwiki_export/
+*.sql
+*.tar.gz
+.migration_checkpoint.json
